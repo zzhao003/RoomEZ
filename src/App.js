@@ -1,5 +1,6 @@
-import logo from "./logo.svg";
 import "./App.scss";
+import Navbar from "./component/Navbar/Navbar";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
