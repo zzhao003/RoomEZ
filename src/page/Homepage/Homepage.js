@@ -11,7 +11,7 @@ const dummy = [
     race: "white",
     work: "writer",
     budegt: 2000,
-    interest: ["soho", "LES"],
+    area: ["soho", "LES"],
     pet: false,
     move: "date string",
     about:
