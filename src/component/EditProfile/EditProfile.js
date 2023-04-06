@@ -1,8 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
-import "./signupform.scss";
+import "./editprofile.scss";
 
-const SignupForm = () => {
+const EditProfile = () => {
   const [detail, setDetail] = useState({
     first_name: "",
     last_name: "",
@@ -120,4 +120,4 @@ const SignupForm = () => {
   );
 };
 
-export default SignupForm;
+export default EditProfile;
