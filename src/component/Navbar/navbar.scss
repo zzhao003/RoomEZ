@@ -6,4 +6,12 @@
   background-color: gray;
   height: 2rem;
   // width: 26rem;
+
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
+  &__active {
+    color: blue;
+  }
 }

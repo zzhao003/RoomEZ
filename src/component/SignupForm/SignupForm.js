@@ -8,12 +8,11 @@ const SignupForm = () => {
     last_name: "",
     age: "",
     gender: "",
-    race: "",
-    work: "",
+    profession: "",
     budget: "",
     area: "",
     pet: "",
-    move: "",
+    movein_date: "",
     about: "",
   });
 
@@ -66,27 +65,20 @@ const SignupForm = () => {
           onChange={onChangeHandler}
         ></input>
       </div>
+
       <div>
         <input
-          placeholder="Race"
-          name="race"
-          value={detail.race}
+          placeholder="profession"
+          name="profession"
+          value={detail.profession}
           onChange={onChangeHandler}
         ></input>
       </div>
       <div>
         <input
-          placeholder="Work"
-          name="work"
-          value={detail.work}
-          onChange={onChangeHandler}
-        ></input>
-      </div>
-      <div>
-        <input
-          placeholder="move"
-          name="move"
-          value={detail.move}
+          placeholder="move in date"
+          name="movein_date"
+          value={detail.movein_date}
           onChange={onChangeHandler}
         ></input>
       </div>
