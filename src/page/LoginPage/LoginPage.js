@@ -23,7 +23,11 @@ const LoginPage = () => {
       .then((res) => {
         // console.log(res.data);
         dispatch(userActions.GET_USER_SUCCESS(res.data));
-        navigate("/");
+        if (res.data.first_name) {
+          navigate("/");
+        } else {
+          navigate("/profile");
+        }
       })
       .catch((err) => {
         console.log(err.response.data);

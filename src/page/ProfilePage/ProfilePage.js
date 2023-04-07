@@ -17,6 +17,7 @@ const ProfilePage = () => {
     if (!user) {
       return navigate("/login");
     }
+    user.first_name || setShowEdit(true);
   }, []);
 
   const editProfileHandler = () => {
