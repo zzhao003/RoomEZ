@@ -2,7 +2,7 @@ import "./homepage.scss";
 import HomeProfile from "../../component/HomeProfile/HomeProfile";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { userActions } from "../../store";
+import { feedActions } from "../../store";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -26,22 +26,23 @@ const dummy = {
 const Homepage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { loading, user, error } = useSelector((state) => state.user);
-  const [currentUser, setCurrentUser] = useState(true);
+  const { loading, feed, error } = useSelector((state) => state.feed);
+  // const [currentUser, setCurrentUser] = useState(true);
+  const { user } = useSelector((state) => state.user);
 
   useEffect(() => {
-    if (!currentUser) {
+    if (!user) {
       return navigate("/login");
     } else {
       axios
-        .get("http://localhost:8080/api/user")
+        .get("http://localhost:8080/api/feed")
         .then((res) => {
           // console.log(res.data);
-          dispatch(userActions.GET_USER_SUCCESS(res.data));
+          dispatch(feedActions.GET_FEED_SUCCESS(res.data));
         })
         .catch((err) => {
-          // console.log(err);
-          dispatch(userActions.GET_USER_FAILED(err));
+          console.log(err);
+          dispatch(feedActions.GET_FEED_FAILED(err));
         });
     }
   }, [dispatch]);
@@ -53,7 +54,7 @@ const Homepage = () => {
       ) : error ? (
         `ERROR!!! ${error}`
       ) : (
-        <HomeProfile user={user} />
+        <HomeProfile feed={feed} />
       )}
     </>
   );

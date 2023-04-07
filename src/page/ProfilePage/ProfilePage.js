@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { userActions } from "../../store";
 import EditProfile from "../../component/EditProfile/EditProfile";
 import Preference from "../../component/Preference/Preference";
 
 const ProfilePage = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [showEdit, setShowEdit] = useState(false);
   const [showPref, setShowPref] = useState(false);
-  const [currentUser, setCurrentUser] = useState(true);
+  const { user } = useSelector((state) => state.user);
 
   //redirect to log in if not logged in.
   useEffect(() => {
-    if (!currentUser) {
+    if (!user) {
       return navigate("/login");
     }
   }, []);
@@ -24,6 +27,11 @@ const ProfilePage = () => {
     setShowPref(true);
   };
 
+  const logoutHandler = () => {
+    dispatch(userActions.GET_USER_SUCCESS(null));
+    navigate("/");
+  };
+
   return (
     <>
       <button onClick={editProfileHandler}>Edit Profile</button>
@@ -31,7 +39,7 @@ const ProfilePage = () => {
       <button onClick={preferenceHandler}>Search Preferences</button>
       {showPref && <Preference setShowPref={setShowPref} />}
       <h2>Setting</h2>
-      <button>Log Out</button>
+      <button onClick={logoutHandler}>Log Out</button>
     </>
   );
 };

@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const SignupPage = () => {
   const [signUpInfo, SetSignUpInfo] = useState({ email: "", password: "" });
+  const [msg, setMsg] = useState("");
   const redirect = useNavigate();
 
   const onChangeHandler = (e) => {
@@ -18,9 +19,12 @@ const SignupPage = () => {
     axios
       .post("http://localhost:8080/api/signup", signUpInfo)
       .then((res) => {
-        console.log(res.data);
+        setMsg("Sign up seccessful");
+        setTimeout(() => {
+          redirect("/login");
+        }, 1000);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => setMsg(err.response.data));
   };
 
   return (
@@ -42,6 +46,7 @@ const SignupPage = () => {
           onChange={onChangeHandler}
         ></input>
         <button type="submit">Sign Up</button>
+        <h2>{msg}</h2>
       </form>
       <button
         onClick={() => {
@@ -50,7 +55,6 @@ const SignupPage = () => {
       >
         Log In
       </button>
-      {/* <SignupForm /> */}
     </>
   );
 };
