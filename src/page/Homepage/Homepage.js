@@ -27,8 +27,8 @@ const Homepage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { loading, feed, error } = useSelector((state) => state.feed);
-  // const [currentUser, setCurrentUser] = useState(true);
   const { user } = useSelector((state) => state.user);
+  const [newFeed, setNewFeed] = useState(false);
 
   useEffect(() => {
     if (!user) {
@@ -45,7 +45,7 @@ const Homepage = () => {
           dispatch(feedActions.GET_FEED_FAILED(err));
         });
     }
-  }, [dispatch]);
+  }, [dispatch, newFeed]);
 
   return (
     <>
@@ -54,7 +54,7 @@ const Homepage = () => {
       ) : error ? (
         `ERROR!!! ${error}`
       ) : (
-        <HomeProfile feed={feed} />
+        <HomeProfile feed={feed} setNewFeed={setNewFeed} />
       )}
     </>
   );

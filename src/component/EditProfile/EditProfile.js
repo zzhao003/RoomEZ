@@ -1,19 +1,22 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import axios from "axios";
 import "./editprofile.scss";
 
 const EditProfile = ({ setShowEdit }) => {
+  const { user } = useSelector((state) => state.user);
+
   const [detail, setDetail] = useState({
-    first_name: "",
-    last_name: "",
-    age: "",
-    gender: "",
-    profession: "",
-    budget: "",
-    area: "",
-    pet: "",
-    movein_date: "",
-    about: "",
+    first_name: user.first_name || "",
+    last_name: user.last_name || "",
+    age: user.age || "",
+    gender: user.gender || "",
+    profession: user.profession || "",
+    budget: user.budget || "",
+    area: user.area || "",
+    pet: user.pet || "",
+    movein_date: user.movein_date || "",
+    about: user.about || "",
   });
 
   const onChangeHandler = (e) => {
@@ -24,11 +27,14 @@ const EditProfile = ({ setShowEdit }) => {
   const formSubmitHander = (e) => {
     e.preventDefault();
 
-    console.log(detail);
-    // axios
-    //   .post("http://localhost8000/api/signup", detail)
-    //   .then((res) => console.log(res))
-    //   .catch((err) => console.log(err));
+    const newDetail = { ...detail, id: user.id };
+    axios
+      .put("http://localhost:8080/api/feed", newDetail)
+      .then((res) => {
+        console.log(res.data);
+        setShowEdit(false);
+      })
+      .catch((err) => console.log(err));
   };
 
   const cancelHandler = () => {
@@ -36,7 +42,7 @@ const EditProfile = ({ setShowEdit }) => {
   };
   return (
     <form className="form" onSubmit={formSubmitHander}>
-      <h2 className="form__title">Tell me about you</h2>
+      <h2 className="form__title">Edit Your Profile</h2>
       <div>
         <input
           placeholder="First Name"

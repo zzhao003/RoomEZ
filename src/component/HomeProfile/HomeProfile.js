@@ -1,9 +1,8 @@
 import "./homeprofile.scss";
 
-const HomeProfile = ({ feed }) => {
+const HomeProfile = ({ feed, setNewFeed }) => {
   const skipHandler = () => {
-    //should fetch a new profile based on search criteria
-    console.log("skip");
+    setNewFeed((prev) => !prev);
   };
   const likeHandler = () => {
     //should send a like to the profile, and notify feed

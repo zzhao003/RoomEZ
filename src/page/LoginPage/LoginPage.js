@@ -21,7 +21,7 @@ const LoginPage = () => {
     axios
       .post("http://localhost:8080/api/login", loginInfo)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         dispatch(userActions.GET_USER_SUCCESS(res.data));
         navigate("/");
       })
