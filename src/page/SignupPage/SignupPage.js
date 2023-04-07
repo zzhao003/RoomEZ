@@ -1,9 +1,11 @@
 import { useState } from "react";
 import axios from "axios";
 import EditProfile from "../../component/EditProfile/EditProfile";
+import { useNavigate } from "react-router-dom";
 
 const SignupPage = () => {
   const [signUpInfo, SetSignUpInfo] = useState({ email: "", password: "" });
+  const redirect = useNavigate();
 
   const onChangeHandler = (e) => {
     const { name, value } = e.target;
@@ -27,18 +29,27 @@ const SignupPage = () => {
         <h2>Sign Up</h2>
         <label>Eamil</label>
         <input
+          required
           name="email"
           value={signUpInfo.email}
           onChange={onChangeHandler}
         ></input>
         <label>Password</label>
         <input
+          required
           name="password"
           value={signUpInfo.password}
           onChange={onChangeHandler}
         ></input>
         <button type="submit">Sign Up</button>
       </form>
+      <button
+        onClick={() => {
+          redirect("/login");
+        }}
+      >
+        Log In
+      </button>
       {/* <SignupForm /> */}
     </>
   );

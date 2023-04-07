@@ -3,7 +3,8 @@ import HomeProfile from "../../component/HomeProfile/HomeProfile";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { userActions } from "../../store";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const dummy = {
   id: "1",
@@ -23,20 +24,26 @@ const dummy = {
 };
 
 const Homepage = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { loading, user, error } = useSelector((state) => state.user);
+  const [currentUser, setCurrentUser] = useState(true);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8080/api/user")
-      .then((res) => {
-        // console.log(res.data);
-        dispatch(userActions.GET_USER_SUCCESS(res.data));
-      })
-      .catch((err) => {
-        // console.log(err);
-        dispatch(userActions.GET_USER_FAILED(err));
-      });
+    if (!currentUser) {
+      return navigate("/login");
+    } else {
+      axios
+        .get("http://localhost:8080/api/user")
+        .then((res) => {
+          // console.log(res.data);
+          dispatch(userActions.GET_USER_SUCCESS(res.data));
+        })
+        .catch((err) => {
+          // console.log(err);
+          dispatch(userActions.GET_USER_FAILED(err));
+        });
+    }
   }, [dispatch]);
 
   return (

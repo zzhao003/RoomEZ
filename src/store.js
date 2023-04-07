@@ -2,7 +2,7 @@ import { createSlice, configureStore } from "@reduxjs/toolkit";
 
 const userSlice = createSlice({
   name: "user",
-  initialState: { user: {}, loading: true, error: null },
+  initialState: { user: null, loading: true, error: null },
   reducers: {
     // GET_USER_REQ(state) {
     //   return { loading: true };

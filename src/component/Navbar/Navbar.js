@@ -13,7 +13,7 @@ const Navbar = () => {
       <NavLink>Liked</NavLink>
       <NavLink>Chat</NavLink>
       <NavLink
-        to="signup"
+        to="profile"
         className={({ isActive }) => (isActive ? "navbar__active" : "")}
       >
         Profile
