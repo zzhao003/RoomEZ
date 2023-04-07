@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import "./editprofile.scss";
 
-const EditProfile = () => {
+const EditProfile = ({ setShowEdit }) => {
   const [detail, setDetail] = useState({
     first_name: "",
     last_name: "",
@@ -29,6 +29,10 @@ const EditProfile = () => {
     //   .post("http://localhost8000/api/signup", detail)
     //   .then((res) => console.log(res))
     //   .catch((err) => console.log(err));
+  };
+
+  const cancelHandler = () => {
+    setShowEdit(false);
   };
   return (
     <form className="form" onSubmit={formSubmitHander}>
@@ -116,6 +120,9 @@ const EditProfile = () => {
       </div>
 
       <button type="submit">Submit</button>
+      <button type="button" onClick={cancelHandler}>
+        Cancel
+      </button>
     </form>
   );
 };
