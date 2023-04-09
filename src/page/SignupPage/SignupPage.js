@@ -41,6 +41,7 @@ const SignupPage = () => {
         <label>Password</label>
         <input
           required
+          type="password"
           name="password"
           value={signUpInfo.password}
           onChange={onChangeHandler}
