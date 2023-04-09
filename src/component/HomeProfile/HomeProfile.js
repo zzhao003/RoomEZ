@@ -1,14 +1,6 @@
 import "./homeprofile.scss";
 
-const HomeProfile = ({ feed, setNewFeed }) => {
-  const skipHandler = () => {
-    setNewFeed((prev) => !prev);
-  };
-  const likeHandler = () => {
-    //should send a like to the profile, and notify feed
-    console.log("like");
-  };
-
+const HomeProfile = ({ feed, setNewFeed, skipHandler, likeHandler }) => {
   return (
     <div className="profile">
       <div className="profile__name-container">

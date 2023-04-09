@@ -6,6 +6,7 @@ import HomePage from "./page/HomePage/HomePage";
 import SignupPage from "./page/SignupPage/SignupPage";
 import LoginPage from "./page/LoginPage/LoginPage";
 import ProfilePage from "./page/ProfilePage/ProfilePage";
+import LikedPage from "./page/LikedPage/LikedPage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="login" element={<LoginPage />} />
         <Route path="signup" element={<SignupPage />} />
         <Route path="profile" element={<ProfilePage />} />
+        <Route path="liked" element={<LikedPage />} />
       </Routes>
       <Navbar />
     </>
