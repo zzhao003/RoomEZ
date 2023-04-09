@@ -7,6 +7,7 @@ const EditProfile = ({ setShowEdit }) => {
   const { user } = useSelector((state) => state.user);
 
   const [detail, setDetail] = useState({
+    id: user.id,
     first_name: user.first_name || "",
     last_name: user.last_name || "",
     age: user.age || "",
@@ -17,6 +18,7 @@ const EditProfile = ({ setShowEdit }) => {
     pet: user.pet || "",
     movein_date: user.movein_date || "",
     about: user.about || "",
+    img_url: user.img_url || "",
   });
 
   const onChangeHandler = (e) => {
@@ -24,12 +26,20 @@ const EditProfile = ({ setShowEdit }) => {
     setDetail((prev) => ({ ...prev, [name]: value }));
   };
 
+  const fileSelectHandler = (e) => {
+    setDetail((prev) => ({ ...prev, img_url: e.target.files[0] }));
+  };
+
   const formSubmitHander = (e) => {
     e.preventDefault();
 
-    const newDetail = { ...detail, id: user.id };
+    const formData = new FormData();
+    for (let key in detail) {
+      formData.append(key, detail[key]);
+    }
+
     axios
-      .put("http://localhost:8080/api/feed", newDetail)
+      .put("http://localhost:8080/api/feed", formData)
       .then((res) => {
         console.log(res.data);
         setShowEdit(false);
@@ -122,6 +132,14 @@ const EditProfile = ({ setShowEdit }) => {
           name="about"
           value={detail.about}
           onChange={onChangeHandler}
+        ></input>
+      </div>
+      <div>
+        <input
+          type="file"
+          placeholder="image"
+          name="image"
+          onChange={fileSelectHandler}
         ></input>
       </div>
 
