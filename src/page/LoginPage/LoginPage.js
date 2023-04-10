@@ -62,7 +62,9 @@ const LoginPage = () => {
         </div>
         <h2>{error}</h2>
         <button type="submit">Log In</button>
-        <Link to="/signup">Sign up</Link>
+        <Link className="login__link" to="/signup">
+          Sign up
+        </Link>
       </form>
     </div>
   );

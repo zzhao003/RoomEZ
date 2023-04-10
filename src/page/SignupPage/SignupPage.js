@@ -1,12 +1,13 @@
+import "./signuppage.scss";
 import { useState } from "react";
 import axios from "axios";
 import EditProfile from "../../component/EditProfile/EditProfile";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignupPage = () => {
   const [signUpInfo, SetSignUpInfo] = useState({ email: "", password: "" });
   const [msg, setMsg] = useState("");
-  const redirect = useNavigate();
+  const navigate = useNavigate();
 
   const onChangeHandler = (e) => {
     const { name, value } = e.target;
@@ -21,42 +22,43 @@ const SignupPage = () => {
       .then((res) => {
         setMsg("Sign up seccessful");
         setTimeout(() => {
-          redirect("/login");
+          navigate("/login");
         }, 1000);
       })
       .catch((err) => setMsg(err.response.data));
   };
 
   return (
-    <>
-      <form onSubmit={SignUpHandler}>
-        <h2>Sign Up</h2>
-        <label>Eamil</label>
-        <input
-          required
-          name="email"
-          value={signUpInfo.email}
-          onChange={onChangeHandler}
-        ></input>
-        <label>Password</label>
-        <input
-          required
-          type="password"
-          name="password"
-          value={signUpInfo.password}
-          onChange={onChangeHandler}
-        ></input>
-        <button type="submit">Sign Up</button>
+    <div className="signup">
+      <form className="signup__form" onSubmit={SignUpHandler}>
+        <h2 className="signup__header">Sign Up</h2>
+        <div>
+          <label>Eamil</label>
+          <input
+            required
+            name="email"
+            // type="email"
+            value={signUpInfo.email}
+            onChange={onChangeHandler}
+          ></input>
+        </div>
+        <div>
+          <label>Password</label>
+          <input
+            required
+            type="password"
+            name="password"
+            value={signUpInfo.password}
+            onChange={onChangeHandler}
+          ></input>
+        </div>
         <h2>{msg}</h2>
+        <button type="submit">Sign Up</button>
+        <Link className="signup__link" to="/login">
+          Log In
+        </Link>
       </form>
-      <button
-        onClick={() => {
-          redirect("/login");
-        }}
-      >
-        Log In
-      </button>
-    </>
+    </div>
   );
 };
 

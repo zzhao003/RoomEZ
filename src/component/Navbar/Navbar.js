@@ -1,7 +1,9 @@
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 import "./navbar.scss";
 
 const Navbar = () => {
+  const { user } = useSelector((state) => state.user);
   return (
     <div className="navbar">
       <NavLink
@@ -21,7 +23,15 @@ const Navbar = () => {
         to="profile"
         className={({ isActive }) => (isActive ? "navbar__active" : "")}
       >
-        Profile
+        <div className="navbar__avatar-container">
+          {user && (
+            <img
+              className="navbar__avatar"
+              alt="profile avatar"
+              src={user.img_url}
+            />
+          )}
+        </div>
       </NavLink>
     </div>
   );

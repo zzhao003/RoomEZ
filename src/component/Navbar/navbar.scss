@@ -4,7 +4,7 @@
   align-items: center;
 
   background-color: gray;
-  height: 2rem;
+  height: 3rem;
   // width: 26rem;
 
   position: fixed;
@@ -13,5 +13,18 @@
 
   &__active {
     color: blue;
+  }
+
+  &__avatar-container {
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+    background-color: lightgray;
+  }
+
+  &__avatar {
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
   }
 }
