@@ -1,4 +1,6 @@
 import "./homeprofile.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark, faCheck } from "@fortawesome/free-solid-svg-icons";
 
 const HomeProfile = ({ feed, setNewFeed, skipHandler, likeHandler }) => {
   return (
@@ -24,10 +26,16 @@ const HomeProfile = ({ feed, setNewFeed, skipHandler, likeHandler }) => {
       </div>
       <div className="profile__button-container">
         <button onClick={skipHandler} className="profile__button ">
-          X
+          <FontAwesomeIcon
+            className="profile__icon"
+            icon={faXmark}
+          ></FontAwesomeIcon>
         </button>
         <button onClick={likeHandler} className="profile__button ">
-          Y
+          <FontAwesomeIcon
+            className="profile__icon"
+            icon={faCheck}
+          ></FontAwesomeIcon>
         </button>
       </div>
     </div>
