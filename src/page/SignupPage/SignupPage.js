@@ -1,7 +1,6 @@
 import "./signuppage.scss";
 import { useState } from "react";
 import axios from "axios";
-import EditProfile from "../../component/EditProfile/EditProfile";
 import { Link, useNavigate } from "react-router-dom";
 
 const SignupPage = () => {

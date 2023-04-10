@@ -7,7 +7,7 @@ const HomeProfile = ({ feed, setNewFeed, skipHandler, likeHandler }) => {
         <h1 className="profile__name">{feed.first_name}</h1>
       </div>
       <div className="profile__img-container">
-        <img src={feed.img_url}></img>
+        <img alt="user profile" src={feed.img_url}></img>
       </div>
       <div className="profile__detail-container">
         <p className="profile__detail">{feed.profession}</p>

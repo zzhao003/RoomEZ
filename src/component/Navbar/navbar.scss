@@ -27,4 +27,14 @@
     width: 2.5rem;
     border-radius: 50%;
   }
+
+  &__icon {
+    height: 2rem;
+    color: lightgray;
+  }
+
+  &__icon:hover {
+    height: 2rem;
+    color: rgb(26, 26, 69);
+  }
 }

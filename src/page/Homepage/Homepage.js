@@ -26,7 +26,7 @@ const Homepage = () => {
         console.log(err);
         dispatch(feedActions.GET_FEED_FAILED(err));
       });
-  }, [dispatch, toggleFeed]);
+  }, [dispatch, navigate, user, toggleFeed]);
 
   const skipHandler = () => {
     //get new feed by rerender page with change for toggleFeed
