@@ -37,11 +37,9 @@ const Homepage = () => {
   const likeHandler = () => {
     //axios call to create entry in lovestory,need user.id and feed.id
     const newLike = { user_id: user.id, like: feed.id };
-
     axios
       .post("http://localhost:8080/api/liked/postalike", newLike)
       .then((res) => {
-        console.log(res.data);
         setToggleFeed((prev) => !prev);
       })
       .catch((err) => {
