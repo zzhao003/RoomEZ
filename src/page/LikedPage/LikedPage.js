@@ -12,6 +12,9 @@ const LikedPage = () => {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
+    if (!user) {
+      return navigate("/login");
+    }
     axios
       .post("http://localhost:8080/api/liked/getlikes", { id: user.id })
       .then((res) => {
@@ -25,7 +28,7 @@ const LikedPage = () => {
         }
       })
       .catch((err) => console.log(err));
-  }, [navigate, user.id]);
+  }, [navigate, user]);
 
   const skipHandler = () => {
     // axios call to delete entry in db

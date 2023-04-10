@@ -16,17 +16,16 @@ const Homepage = () => {
   useEffect(() => {
     if (!user) {
       return navigate("/login");
-    } else {
-      axios
-        .get("http://localhost:8080/api/feed")
-        .then((res) => {
-          dispatch(feedActions.GET_FEED_SUCCESS(res.data));
-        })
-        .catch((err) => {
-          console.log(err);
-          dispatch(feedActions.GET_FEED_FAILED(err));
-        });
     }
+    axios
+      .get("http://localhost:8080/api/feed")
+      .then((res) => {
+        dispatch(feedActions.GET_FEED_SUCCESS(res.data));
+      })
+      .catch((err) => {
+        console.log(err);
+        dispatch(feedActions.GET_FEED_FAILED(err));
+      });
   }, [dispatch, toggleFeed]);
 
   const skipHandler = () => {
