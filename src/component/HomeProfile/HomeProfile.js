@@ -1,6 +1,14 @@
 import "./homeprofile.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark, faCheck } from "@fortawesome/free-solid-svg-icons";
+import {
+  faXmark,
+  faCheck,
+  faSackDollar,
+  faGift,
+  faRestroom,
+  faMapPin,
+  faCalendarDay,
+} from "@fortawesome/free-solid-svg-icons";
 
 const HomeProfile = ({ feed, setNewFeed, skipHandler, likeHandler }) => {
   return (
@@ -12,16 +20,51 @@ const HomeProfile = ({ feed, setNewFeed, skipHandler, likeHandler }) => {
         <img alt="user profile" src={feed.img_url}></img>
       </div>
       <div className="profile__detail-container">
-        <p className="profile__detail">{feed.profession}</p>
-        <p className="profile__detail">{feed.age}</p>
-        <p className="profile__detail">{feed.gender}</p>
-        <p className="profile__detail">{feed.budget}</p>
-        <p className="profile__detail">{feed.area}</p>
-        <p className="profile__detail">{feed.movein_date}</p>
+        <div className="profile__detail-subcontainer">
+          <FontAwesomeIcon
+            className="profile__detail-icon"
+            icon={faSackDollar}
+          ></FontAwesomeIcon>
+          <span className="profile__detail">{feed.profession}</span>
+        </div>
+        <div className="profile__detail-subcontainer">
+          <FontAwesomeIcon
+            className="profile__detail-icon"
+            icon={faGift}
+          ></FontAwesomeIcon>
+          <span className="profile__detail">{feed.age}</span>
+        </div>
+        <div className="profile__detail-subcontainer">
+          <FontAwesomeIcon
+            className="profile__detail-icon"
+            icon={faRestroom}
+          ></FontAwesomeIcon>
+          <span className="profile__detail">{feed.gender}</span>
+        </div>
+        <div className="profile__detail-subcontainer">
+          <FontAwesomeIcon
+            className="profile__detail-icon"
+            icon={faSackDollar}
+          ></FontAwesomeIcon>
+          <span className="profile__detail">${feed.budget}</span>
+        </div>
+        <div className="profile__detail-subcontainer">
+          <FontAwesomeIcon
+            className="profile__detail-icon"
+            icon={faMapPin}
+          ></FontAwesomeIcon>
+          <span className="profile__detail">{feed.area}</span>
+        </div>
+        <div className="profile__detail-subcontainer">
+          <FontAwesomeIcon
+            className="profile__detail-icon"
+            icon={faCalendarDay}
+          ></FontAwesomeIcon>
+          <span className="profile__detail">{feed.movein_date}</span>
+        </div>
       </div>
 
       <div className="profile__detail-container">
-        <p>about</p>
         <p>{feed.about}</p>
       </div>
       <div className="profile__button-container">
