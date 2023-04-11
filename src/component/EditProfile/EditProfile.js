@@ -34,8 +34,9 @@ const EditProfile = ({ setShowEdit }) => {
 
   const formSubmitHander = (e) => {
     e.preventDefault();
-
+    //update redux user state
     dispatch(userActions.GET_USER_SUCCESS(detail));
+
     const formData = new FormData();
     for (let key in detail) {
       formData.append(key, detail[key]);

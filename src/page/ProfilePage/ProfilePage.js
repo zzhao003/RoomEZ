@@ -37,8 +37,8 @@ const ProfilePage = () => {
   return (
     <div className="preference">
       <div>
-        <img className="preference__img" src={user.img_url} />
-        <h4>{user.first_name}</h4>
+        <img className="preference__img" src={user ? user.img_url : ""} />
+        <h4>{user ? user.first_name : ""}</h4>
       </div>
       <h3 className="preference__link" onClick={editProfileHandler}>
         Edit Profile
