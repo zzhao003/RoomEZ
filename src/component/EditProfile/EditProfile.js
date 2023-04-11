@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { userActions } from "../../store";
 import axios from "axios";
 import "./editprofile.scss";
 
 const EditProfile = ({ setShowEdit }) => {
+  const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
 
   const [detail, setDetail] = useState({
@@ -33,6 +35,7 @@ const EditProfile = ({ setShowEdit }) => {
   const formSubmitHander = (e) => {
     e.preventDefault();
 
+    dispatch(userActions.GET_USER_SUCCESS(detail));
     const formData = new FormData();
     for (let key in detail) {
       formData.append(key, detail[key]);
