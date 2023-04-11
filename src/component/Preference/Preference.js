@@ -14,9 +14,10 @@ const Preference = ({ setShowPref }) => {
   };
 
   return (
-    <form className="form">
-      <h2 className="form__title">Preference</h2>
+    <form className="preferenceform">
+      <h2 className="preferenceform__title">Preference</h2>
       <div>
+        <label>Pet</label>
         <input
           placeholder="pet"
           name="pet"

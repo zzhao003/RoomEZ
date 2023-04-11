@@ -1,7 +1,13 @@
+@use "./style/font.scss" as *;
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+body {
+  font-family: Avenir, sans-serif;
 }
 
 a {
@@ -19,7 +25,7 @@ img {
 
 button {
   height: 2rem;
-  width: 4rem;
+  width: 6rem;
   border: 0;
   border-radius: 4px;
   display: block;
@@ -40,4 +46,14 @@ input {
   display: block;
   border: 2px solid rgb(121, 120, 120);
   border-radius: 4px;
+}
+
+textarea {
+  display: block;
+  width: 12rem;
+  height: 8rem;
+  display: block;
+  border: 2px solid rgb(121, 120, 120);
+  border-radius: 4px;
+  overflow: scroll;
 }

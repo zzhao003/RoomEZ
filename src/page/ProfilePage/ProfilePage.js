@@ -1,3 +1,4 @@
+import "./profilepage.scss";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -34,14 +35,22 @@ const ProfilePage = () => {
   };
 
   return (
-    <>
-      <button onClick={editProfileHandler}>Edit Profile</button>
+    <div className="preference">
+      <div>
+        <img className="preference__img" src={user.img_url} />
+        <h4>{user.first_name}</h4>
+      </div>
+      <h3 className="preference__link" onClick={editProfileHandler}>
+        Edit Profile
+      </h3>
       {showEdit && <EditProfile setShowEdit={setShowEdit} />}
-      <button onClick={preferenceHandler}>Search Preferences</button>
+      <h3 className="preference__link" onClick={preferenceHandler}>
+        Search Preferences
+      </h3>
       {showPref && <Preference setShowPref={setShowPref} />}
-      <h2>Setting</h2>
+      <h3 className="preference__link">Setting</h3>
       <button onClick={logoutHandler}>Log Out</button>
-    </>
+    </div>
   );
 };
 

@@ -51,9 +51,10 @@ const EditProfile = ({ setShowEdit }) => {
     setShowEdit(false);
   };
   return (
-    <form className="form" onSubmit={formSubmitHander}>
-      <h2 className="form__title">Edit Your Profile</h2>
+    <form className="editform" onSubmit={formSubmitHander}>
+      <h2 className="editform__title">Edit Your Profile</h2>
       <div>
+        <label>Fist Name</label>
         <input
           placeholder="First Name"
           name="first_name"
@@ -62,6 +63,7 @@ const EditProfile = ({ setShowEdit }) => {
         ></input>
       </div>
       <div>
+        <label>Last Name</label>
         <input
           placeholder="Last Name"
           name="last_name"
@@ -70,6 +72,7 @@ const EditProfile = ({ setShowEdit }) => {
         ></input>
       </div>
       <div>
+        <label>Age</label>
         <input
           placeholder="Age"
           name="age"
@@ -78,6 +81,7 @@ const EditProfile = ({ setShowEdit }) => {
         ></input>
       </div>
       <div>
+        <label>Gender</label>
         <input
           placeholder="Gender"
           name="gender"
@@ -85,8 +89,8 @@ const EditProfile = ({ setShowEdit }) => {
           onChange={onChangeHandler}
         ></input>
       </div>
-
       <div>
+        <label>Profession</label>
         <input
           placeholder="profession"
           name="profession"
@@ -95,6 +99,7 @@ const EditProfile = ({ setShowEdit }) => {
         ></input>
       </div>
       <div>
+        <label>Move In Date</label>
         <input
           placeholder="move in date"
           name="movein_date"
@@ -103,6 +108,7 @@ const EditProfile = ({ setShowEdit }) => {
         ></input>
       </div>
       <div>
+        <label>Budget</label>
         <input
           placeholder="Budget"
           name="budget"
@@ -111,6 +117,7 @@ const EditProfile = ({ setShowEdit }) => {
         ></input>
       </div>
       <div>
+        <label>Area</label>
         <input
           placeholder="Area"
           name="area"
@@ -119,6 +126,7 @@ const EditProfile = ({ setShowEdit }) => {
         ></input>
       </div>
       <div>
+        <label>Pet</label>
         <input
           placeholder="pet"
           name="pet"
@@ -127,14 +135,16 @@ const EditProfile = ({ setShowEdit }) => {
         ></input>
       </div>
       <div>
-        <input
+        <label>About</label>
+        <textarea
           placeholder="about"
           name="about"
           value={detail.about}
           onChange={onChangeHandler}
-        ></input>
+        ></textarea>
       </div>
       <div>
+        <label>Profil Picture</label>
         <input
           type="file"
           placeholder="image"
