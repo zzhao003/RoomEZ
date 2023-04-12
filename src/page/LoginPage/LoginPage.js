@@ -41,7 +41,7 @@ const LoginPage = () => {
       <form className="login__form" onSubmit={LoginHandler}>
         <h2 className="login__header">Log In</h2>
         <div>
-          <label>Eamil</label>
+          <label>Email</label>
           <input
             required
             name="email"

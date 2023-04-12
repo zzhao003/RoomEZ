@@ -32,7 +32,7 @@ const SignupPage = () => {
       <form className="signup__form" onSubmit={SignUpHandler}>
         <h2 className="signup__header">Sign Up</h2>
         <div>
-          <label>Eamil</label>
+          <label>Email</label>
           <input
             required
             name="email"

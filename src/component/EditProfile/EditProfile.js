@@ -34,8 +34,6 @@ const EditProfile = ({ setShowEdit }) => {
 
   const formSubmitHander = (e) => {
     e.preventDefault();
-    //update redux user state
-    dispatch(userActions.GET_USER_SUCCESS(detail));
 
     const formData = new FormData();
     for (let key in detail) {
@@ -46,7 +44,9 @@ const EditProfile = ({ setShowEdit }) => {
       .put("http://localhost:8080/api/feed", formData)
       .then((res) => {
         console.log(res.data);
+        //update redux user state
         setShowEdit(false);
+        dispatch(userActions.GET_USER_SUCCESS(res.data));
       })
       .catch((err) => console.log(err));
   };
