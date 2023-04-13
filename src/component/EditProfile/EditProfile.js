@@ -44,8 +44,8 @@ const EditProfile = ({ setShowEdit }) => {
       .put("http://localhost:8080/api/feed", formData)
       .then((res) => {
         console.log(res.data);
-        //update redux user state
         setShowEdit(false);
+        //update redux user state
         dispatch(userActions.GET_USER_SUCCESS(res.data));
       })
       .catch((err) => console.log(err));
@@ -157,7 +157,9 @@ const EditProfile = ({ setShowEdit }) => {
         ></input>
       </div>
 
-      <button type="submit">Submit</button>
+      <button className="editform__submit" type="submit">
+        Submit
+      </button>
       <button type="button" onClick={cancelHandler}>
         Cancel
       </button>

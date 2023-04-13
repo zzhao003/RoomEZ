@@ -46,6 +46,7 @@ input {
   display: block;
   border: 2px solid rgb(121, 120, 120);
   border-radius: 4px;
+  padding-left: 4px;
 }
 
 textarea {
@@ -56,4 +57,20 @@ textarea {
   border: 2px solid rgb(121, 120, 120);
   border-radius: 4px;
   overflow: scroll;
+  font: inherit;
+  padding: 4px;
 }
+
+// body {
+//   background-image: url("./asset/iPhone\ 13\ Pro.png");
+//   background-repeat: no-repeat;
+//   background-size: contain;
+//   background-position: center;
+//   width: 48rem;
+//   height: 87.1rem;
+//   overflow: auto;
+//   padding-top: 2rem;
+//   width: 43rem;
+//   margin: auto;
+//   position: relative;
+// }

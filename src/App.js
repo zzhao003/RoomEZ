@@ -8,12 +8,14 @@ import LoginPage from "./page/LoginPage/LoginPage";
 import ProfilePage from "./page/ProfilePage/ProfilePage";
 import LikedPage from "./page/LikedPage/LikedPage";
 import ChatPage from "./page/ChatPage/ChatPage";
+import LandingPage from "./page/LandingPage/LandingPage";
 
 function App() {
   return (
     <>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="landing" element={<LandingPage />} />
         <Route path="login" element={<LoginPage />} />
         <Route path="signup" element={<SignupPage />} />
         <Route path="profile" element={<ProfilePage />} />
