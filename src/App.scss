@@ -1,5 +1,76 @@
+@use "./style/font.scss" as *;
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
+
+body {
+  font-family: Avenir, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+
+  border-radius: 12px;
+}
+
+button {
+  height: 2rem;
+  width: 6rem;
+  border: 0;
+  border-radius: 4px;
+  display: block;
+  background-color: gray;
+
+  color: white;
+  font-size: 1rem;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: lightblue;
+}
+
+input {
+  width: 12rem;
+  height: 2rem;
+  display: block;
+  border: 2px solid rgb(121, 120, 120);
+  border-radius: 4px;
+  padding-left: 4px;
+}
+
+textarea {
+  display: block;
+  width: 12rem;
+  height: 8rem;
+  display: block;
+  border: 2px solid rgb(121, 120, 120);
+  border-radius: 4px;
+  overflow: scroll;
+  font: inherit;
+  padding: 4px;
+}
+
+// body {
+//   background-image: url("./asset/iPhone\ 13\ Pro.png");
+//   background-repeat: no-repeat;
+//   background-size: contain;
+//   background-position: center;
+//   width: 48rem;
+//   height: 87.1rem;
+//   overflow: auto;
+//   padding-top: 2rem;
+//   width: 43rem;
+//   margin: auto;
+//   position: relative;
+// }

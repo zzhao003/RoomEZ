@@ -1,0 +1,66 @@
+.profile {
+  background-color: rgb(191, 189, 189);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+  &__name-container {
+    width: 22rem;
+    margin: 0 auto;
+  }
+
+  &__img-container {
+    height: 22rem;
+    width: 22rem;
+    background-color: grey;
+    margin: 0 auto;
+
+    border-radius: 12px;
+    box-shadow: 0 4px 4px rgb(0, 0, 0, 0.2);
+  }
+
+  &__detail-container {
+    background-color: white;
+    width: 22rem;
+    margin: 0 auto;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 4px 4px rgb(0, 0, 0, 0.2);
+  }
+
+  &__detail-subcontainer {
+    padding: 1rem;
+    border-bottom: 1px solid rgb(181, 179, 179);
+  }
+
+  &__detail-icon {
+    margin-right: 2rem;
+    height: 24px;
+    width: 24px;
+  }
+
+  &__button-container {
+    width: 22rem;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 3rem;
+  }
+
+  &__button {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 100%;
+    border: none;
+    box-shadow: 0 4px 4px rgb(0, 0, 0, 0.2);
+  }
+
+  &__icon {
+    height: 2rem;
+  }
+}

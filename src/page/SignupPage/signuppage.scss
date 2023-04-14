@@ -1,0 +1,19 @@
+.signup {
+  display: flex;
+  justify-content: center;
+
+  &__header {
+    margin: 1rem auto;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__link {
+    border-bottom: 1px solid;
+  }
+}
