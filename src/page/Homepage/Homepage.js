@@ -18,7 +18,7 @@ const Homepage = () => {
       return navigate("/login");
     }
     axios
-      .post("http://localhost:8080/api/feed", user.id)
+      .post("http://localhost:8080/api/feed", { id: user.id })
       .then((res) => {
         dispatch(feedActions.GET_FEED_SUCCESS(res.data));
       })

@@ -1,11 +1,10 @@
 import "./singlechat.scss";
-import patrick from "../../asset/patrick.png";
 
-const SingleChat = () => {
+const SingleChat = ({ item }) => {
   return (
     <div className="singlechat">
-      <img className="singlechat__img" src={patrick} />
-      <h4 className="singlechat__name">name</h4>
+      <img className="singlechat__img" src={item.img_url} />
+      <h4 className="singlechat__name">{item.first_name}</h4>
     </div>
   );
 };
