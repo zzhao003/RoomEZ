@@ -10,7 +10,7 @@ import {
   faCalendarDay,
 } from "@fortawesome/free-solid-svg-icons";
 
-const HomeProfile = ({ feed, setNewFeed, skipHandler, likeHandler }) => {
+const HomeProfile = ({ feed, skipHandler, likeHandler }) => {
   return (
     <div className="profile">
       <div className="profile__name-container">
