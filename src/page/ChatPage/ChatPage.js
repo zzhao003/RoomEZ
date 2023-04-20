@@ -27,7 +27,7 @@ const ChatPage = () => {
         id: user.id,
       })
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
 
         const filteredMatch = res.data;
         // .map((item) => {
@@ -41,7 +41,7 @@ const ChatPage = () => {
         setMatchArr(filteredMatch);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [navigate, user]);
 
   return (
     <div className="chatpage">
