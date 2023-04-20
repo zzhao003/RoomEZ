@@ -2,11 +2,13 @@ import "./chatpage.scss";
 import SingleChat from "../../component/SingleChat/SingleChat";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
 import ChatModal from "../../component/ChatModal/ChatModal";
 
 const ChatPage = () => {
+  const navigate = useNavigate();
   const { user } = useSelector((state) => state.user);
   const [curMatch, setCurMatch] = useState(false);
   const [matchArr, setMatchArr] = useState([]);
@@ -17,6 +19,9 @@ const ChatPage = () => {
   };
 
   useEffect(() => {
+    if (!user) {
+      return navigate("/login");
+    }
     axios
       .post("http://localhost:8080/api/chat", {
         id: user.id,
